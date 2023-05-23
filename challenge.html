@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        
+        <meta charset="UTF-8"> 
+        <title>Challenge Encriptador</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style-challenge.css">
+    
+    </head>
+
+
+    <body>
+
+        <div class="cajaderecha">
+            <img class="logo" src="Logo.png">
+            <input name="texto" type="text" placeholder="Ingresa el texto aqui" 
+                id="textoInp" class="entrada"></input>
+            <p class="aviso">&#128712 Solo letras minusculas y sin acentos</p>
+            
+            <div class="botones">
+                <button name="botonEncriptar" id="botonEnc" class="botonencriptar">Encriptar</button>
+                <button name="botonDesencriptar"  id="botonDes" class="botondesencriptar">Desencriptar</button>
+            </div>
+
+        </div>
+        
+        <div id="idcajaizquierda" class="cajaizquierda">
+            <img  class="imagencaja"  src="Muñeco.png">
+            <p class="titulocaja">
+                Ningun mensaje fue encontrado
+            </p>
+            <p class="comentariocaja">
+                Ingresa el texto que deseas encriptar o desencriptar
+            </p>
+        </div>
+
+    </body>
+
+    <script>
+    
+        function encriptar(){
+            var texto = entradaTexto.value;
+            var arreglo = texto.split("");
+            //Recorriendo el 
+            arreglo.forEach(function callback (elemento,indice,arreglo){
+                switch(elemento){
+                    case "a":
+                        arreglo[indice] = "ai";
+                        break;
+                    case "e":
+                        arreglo[indice] = "enter";
+                        break;
+                    case "i":
+                        arreglo[indice] = "imes";
+                        break;
+                    case "o":
+                        arreglo[indice] = "ober";
+                        break;
+                    case "u":
+                        arreglo[indice] = "ufat";
+                        break;
+                }
+            });
+    
+            //Uniendo el arreglo en una sola cadena
+            //Mostrando mensaje encriptado en un alert
+            HTMLEstado2(arreglo.join(""));
+        }
+    
+        function desencriptar(){
+            let texto = entradaTexto.value;
+            var arreglo = texto.split("");
+            arreglo.forEach(function callback (elemento,indice,arreglo){
+                switch(elemento){
+                    case "a":
+                        if(arreglo[indice+1] == "i"){
+                            arreglo.splice(indice+1,1); //Eliminando el elemento indice+1 del arreglo
+                        }
+                        break;
+                    case "e":
+                        if(arreglo[indice+1] == "n" && arreglo[indice+2] == "t" && arreglo[indice+3] == "e" && arreglo[indice+4] == "r"){
+                            arreglo.splice(indice+1,4); //Eliminando los elementos nter del arreglo
+                        }
+                        break;
+                    case "i":
+                        if(arreglo[indice+1] == "m" && arreglo[indice+2] == "e" && arreglo[indice+3] == "s"){
+                            arreglo.splice(indice+1,3); //Eliminando los elementos nter del arreglo
+                        }
+                        break;
+                    case "o":
+                        if(arreglo[indice+1] == "b" && arreglo[indice+2] == "e" && arreglo[indice+3] == "r"){
+                            arreglo.splice(indice+1,3); //Eliminando los elementos nter del arreglo
+                        }
+                        break;
+                    case "u":
+                        if(arreglo[indice+1] == "f" && arreglo[indice+2] == "a" && arreglo[indice+3] == "t"){
+                            arreglo.splice(indice+1,3); //Eliminando los elementos nter del arreglo
+                        }
+                        break;
+                }
+            });
+            
+            //Uniendo el arreglo en una sola cadena
+            //Mostrando mensaje encriptado en un alert
+            HTMLEstado2(arreglo.join(""));
+        }
+    
+        function copiarAlPortapapeles(){
+            var content = document.getElementById('impresionEncriptador');
+            content.select();
+            document.execCommand('copy');
+            alert("Copied!");
+        }
+
+        function HTMLEstado1(){
+            var htmlDivCaja;
+            htmlDivCaja = document.getElementById("idcajaizquierda");
+            htmlDivCaja.innerHTML = "<img  class=\"imagencaja\"  src=\"Muñeco.png\"><p class=\"titulocaja\">Ningun mensaje fue encontrado</p><p class=\"comentariocaja\">Ingresa el texto que deseas encriptar o desencriptar</p>";
+            //htmlDivCaja.innerHTML = "";
+        }
+
+        function HTMLEstado2(mensaje){
+            var htmlDivCaja;
+            htmlDivCaja = document.getElementById("idcajaizquierda");
+            htmlDivCaja.innerHTML = "<label id=\"impresionEncriptador\" class=\"impresionLabel\">"+ 
+                mensaje +"</label><button name=\"botonCopiar\" onclick=\"copiarAlPortapapeles()\" id=\"botonCopi\" class=\"botonCopiar\">Copiar</button>";
+        }
+
+        //HTMLEstado1();
+        var botonEncriptarJS = document.getElementById("botonEnc");
+        var botonDesencriptarJS = document.getElementById("botonDes");
+        var entradaTexto = document.getElementById("textoInp");
+        botonEncriptarJS.onclick = encriptar;
+        //botonEncriptarJS.onclick = cambioHtmlencriptar;
+        botonDesencriptarJS.onclick = desencriptar;
+    
+
+    
+    </script>
+
+</html>
+

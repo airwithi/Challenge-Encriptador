@@ -1,0 +1,121 @@
+body{
+    background-color: #F3F5FC;
+    display: flex;
+}
+
+.cajaderecha{
+    width: 66%;
+    align-items: center;
+    margin: 10px 2% 0 0;
+    
+}
+
+.cajaizquierda{
+    width: 33%;
+    background-color: white;
+    border-style: none;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 3px 3px 10px #A7ABB2;
+}
+
+.aviso{
+    font-size: 14px;
+    margin: 10px 0 10px 20%;
+    color: #A7ABB2;
+}
+
+.entrada{
+    font-size: 25px;
+    background-color: #F3F5FC;
+    border-style: none;
+    width: 85%;
+    height: 400px;
+    margin-bottom: 40px;
+    margin-left: 20%;
+}
+
+.botonencriptar{
+    background-color: #0A3871;
+    color: #D8DFE8;
+    width: 45%;
+    height: 45px;
+    border: solid;
+    border-color: 	#7E96B6;
+    border-width: 2px;
+    border-radius: 15px;
+    margin: auto;
+}
+
+.botondesencriptar{
+	background-color: #D8DFE8;
+    color: #0A3871;
+    width: 45%;
+    height: 45px;
+    border: solid;
+    border-color: 	#7E96B6;
+    border-width: 2px;
+    border-radius: 15px;
+    margin: auto;
+}
+
+.logo{
+    margin: 1% 2% 1%;
+}
+
+
+.botones{
+    margin-top: 10px;
+    display: flex;
+    margin: 10px 0 10px 20%;
+}
+
+.pagina{
+    display: flex;
+}
+
+
+.imagencaja{
+    display: block;
+    width:70%;
+    margin: 20% auto 10% auto;
+}
+
+.titulocaja{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5%;
+}
+
+.comentariocaja{
+    text-align: center;
+    font-size: 14px;
+    color: #A7ABB2;
+    margin-bottom: 20%;
+}
+
+.botonCopiar{
+    display: block;
+    background-color: #D8DFE8;
+    color: #0A3871;
+    width: 75%;
+    height: 45px;
+    border: solid;
+    border-color: 	#7E96B6;
+    border-width: 2px;
+    border-radius: 15px;
+    margin: 20% auto 10% auto;
+    vertical-align: bottom;
+}
+
+.impresionLabel{
+    display: block;
+    height: 400px;
+    font-size: 20px;
+    color: #7E96B6;
+    margin: 20px;
+}
