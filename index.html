@@ -130,7 +130,6 @@
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(mensajeActual)
                 .then(function() {
-                console.log("Texto copiado correctamente");
                 })
                 .catch(function(error) {
                 console.error("Error al copiar el texto: ", error);
@@ -149,7 +148,7 @@
         
         botonEncriptarJS.onclick = encriptar;
         botonDesencriptarJS.onclick = desencriptar;
-        botonCopiarJS.onclick = Copiar;
+        
 
     
     </script>
