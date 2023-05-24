@@ -65,7 +65,8 @@
     
             //Uniendo el arreglo en una sola cadena
             //Mostrando mensaje encriptado en un alert
-            HTMLEstado2(arreglo.join(""));
+            mensajeActual = arreglo.join("");
+            HTMLEstado2(mensajeActual);
         }
     
         function desencriptar(){
@@ -103,38 +104,52 @@
             
             //Uniendo el arreglo en una sola cadena
             //Mostrando mensaje encriptado en un alert
-            HTMLEstado2(arreglo.join(""));
+            mensajeActual = arreglo.join("");
+            HTMLEstado2(mensajeActual);
         }
     
-        function copiarAlPortapapeles(){
-            var content = document.getElementById('impresionEncriptador');
-            content.select();
-            document.execCommand('copy');
-            alert("Copied!");
-        }
+
 
         function HTMLEstado1(){
             var htmlDivCaja;
             htmlDivCaja = document.getElementById("idcajaizquierda");
-            htmlDivCaja.innerHTML = "<img  class=\"imagencaja\"  src=\"Muñeco.png\"><p class=\"titulocaja\">Ningun mensaje fue encontrado</p><p class=\"comentariocaja\">Ingresa el texto que deseas encriptar o desencriptar</p>";
-            //htmlDivCaja.innerHTML = "";
+            htmlDivCaja.innerHTML = "<img  class=\"imagencaja\"  src=\"Muñeco.png\"><p class=\"titulocaja\">Ningun mensaje fue encontrado</p><p class=\"comentariocaja\" name=\"RealizadoporJEFQ\">Ingresa el texto que deseas encriptar o desencriptar</p>";
         }
 
         function HTMLEstado2(mensaje){
             var htmlDivCaja;
             htmlDivCaja = document.getElementById("idcajaizquierda");
             htmlDivCaja.innerHTML = "<label id=\"impresionEncriptador\" class=\"impresionLabel\">"+ 
-                mensaje +"</label><button name=\"botonCopiar\" onclick=\"copiarAlPortapapeles()\" id=\"botonCopi\" class=\"botonCopiar\">Copiar</button>";
+                mensaje +"</label><button name=\"botonCopiar\" onclick=\"Copiar()\" id=\"botonCopi\" class=\"botonCopiar\">Copiar</button>";
+            
+        }
+        
+
+        function Copiar(){
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(mensajeActual)
+                .then(function() {
+                console.log("Texto copiado correctamente");
+                })
+                .catch(function(error) {
+                console.error("Error al copiar el texto: ", error);
+                });
+            } 
+            else {
+            console.error("La API Clipboard no es compatible con este navegador");
+            } 
+
         }
 
-        //HTMLEstado1();
+        var mensajeActual;
         var botonEncriptarJS = document.getElementById("botonEnc");
         var botonDesencriptarJS = document.getElementById("botonDes");
         var entradaTexto = document.getElementById("textoInp");
+        
         botonEncriptarJS.onclick = encriptar;
-        //botonEncriptarJS.onclick = cambioHtmlencriptar;
         botonDesencriptarJS.onclick = desencriptar;
-    
+        botonCopiarJS.onclick = Copiar;
 
     
     </script>
